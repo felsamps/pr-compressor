@@ -12,3 +12,4 @@
 *.a
 
 compress
+*.mat
