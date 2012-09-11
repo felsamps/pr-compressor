@@ -7,6 +7,7 @@
 #include <list>
 #include <map>
 #include <algorithm>
+#include <cmath>
 
 using namespace std;
 
@@ -45,14 +46,22 @@ private:
     list<Node*> l;
     Node* head;
     map<int, short> bitLength;
+    long long int total;
+    double mean;
+    double std;
+    int thL, thH;
 
 public:
     Huffman(map<int, long long int> occ);
 
+    double xCalcStdDev(map<int,long long int> occ);
     void buildTree();
-    void reportList();
     void genBitLengthTable();
+    int getBitLength(int symbol);
+    
     void reportBitLengthTable();
+    void reportList();
+    void reportStats();
 
 };
 
