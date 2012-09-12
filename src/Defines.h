@@ -8,6 +8,10 @@
 
 #define OUT_OF_RANGE_SYMBOL 660 /*out of range symbol*/
 #define UNCOMPRESSED_VECTOR_BIT_L 8
+#define UNCOMPRESSED_SAD_BIT_L 0
+
+#define SIGMA_TIMES 2
+#define SIGMA_PCTG 0.042
 
 #endif	/* _DEFINES_H */
 

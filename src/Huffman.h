@@ -62,6 +62,7 @@ public:
     void reportBitLengthTable();
     void reportList();
     void reportStats();
+    int getTableSize();
 
 };
 

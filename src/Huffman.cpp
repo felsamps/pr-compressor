@@ -14,8 +14,8 @@ Huffman::Huffman(map<int,long long int> occ) {
 	}
 	this->mean = this->mean / this->total;
 	this->std = xCalcStdDev(occ);
-	this->thL = (int) this->mean - 3* this->std;
-	this->thH = (int) this->mean + 3* this->std;
+	this->thL = (int) this->mean - SIGMA_TIMES * this->std;
+	this->thH = (int) this->mean + SIGMA_TIMES * this->std;
 
 	for(map<int,long long int>::iterator it = occ.begin(); it != occ.end(); it++) {
 		Node *n = new Node((*it).first, (*it).second);
@@ -24,7 +24,7 @@ Huffman::Huffman(map<int,long long int> occ) {
 		}
 	}
 
-	Node *special = new Node(660, (0.042 * this->total));
+	Node *special = new Node(OUT_OF_RANGE_SYMBOL, (SIGMA_PCTG * this->total));
 	this->l.push_back(special);
 
 }
@@ -83,4 +83,8 @@ int Huffman::getBitLength(int symbol) {
 	else {
 		return bitLength[OUT_OF_RANGE_SYMBOL] + UNCOMPRESSED_VECTOR_BIT_L;
 	}
+}
+
+int Huffman::getTableSize() {
+	return bitLength.size();
 }
